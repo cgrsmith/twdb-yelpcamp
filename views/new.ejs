@@ -1,0 +1,27 @@
+<% include partials/header %>
+
+<main class="ui main text container">
+    <header class="header">
+        <h1>Create New Campground</h1>
+    </header>
+
+    <form action="/campgrounds" method="POST" class="ui form segment">
+        <div class="field">
+            <label>Campsite Name</label>
+            <input type="text" name="name" placeholder="Campsite Name" required>
+        </div>
+        <div class="field">
+            <label>Image Link</label>
+            <input type="text" name="image" placeholder="Image Link" required>
+        </div>
+        <div class="field">
+            <label>Description</label>
+            <textarea name="description" placeholder="A short description of the campsite" required></textarea>
+        </div>
+        <button class="ui big button teal" type="submit">Submit Campground</button>
+        <a href="/campgrounds" class="ui small button teal">Return</a>
+    </form>
+
+</main>
+
+<% include partials/footer %>

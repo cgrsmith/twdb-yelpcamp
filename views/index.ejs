@@ -1,0 +1,30 @@
+<% include partials/header %>
+
+
+
+
+<main class="ui main container">
+    <header class="ui header">
+        <h1>Campgrounds</h1>
+        <a href="/campgrounds/new" class="btn btn-primary">Add a new Campground</a>
+    </header>
+    
+    <div class="ui four doubling stackable cards">
+        <% campgrounds.forEach(function (campground) { %>  
+        <div class="raised card">
+            <div class="image">
+                <img  src="<%= campground.image%>" alt="campsite image">
+            </div>
+            <div class="content">
+                <h3 class="header"><%= campground.name%></h3>
+                <p class="description"><%= campground.description.substring(0,150)%></p>
+                <a href="/campgrounds/<%= campground._id%>" class="button">More Info</a>
+            </div>
+        </div>
+        <% }); %>
+    </div>
+
+</main>
+
+
+<% include partials/footer %>
