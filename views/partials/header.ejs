@@ -2,15 +2,26 @@
 <html>
 <head>
     <title>YelpCamp</title>
-    <link rel="stylesheet" type="text/css" href="/styles/style.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.0/dist/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
 </head>
 <body>
 
     <nav class="ui stackable inverted teal menu huge">           
-            <a href="/" class="item"><h1 class="header item">YelpCamp</h1></a>
-            <a href="/" class="item header">Login</a>
-            <a href="/" class="item header">New Post</a>
+            <a href="/" class="item">
+                <h1 class="header item">YelpCamp</h1>
+            </a>
+            <div class="right menu">
+                <% if(!currentUser) { %>
+                <a href="/login" class="item header">Login</a>
+                <a href="/register" class="item header">Sign Up</a>
+                <% } else { %>
+                <div class="item">
+                    <span class="header"> <%= currentUser.username %></span>
+                </div>
+                <a href="/logout" class="item header">Log Out</a>
+                <% } %>
+            </div>
     </nav>
 
 

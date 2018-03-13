@@ -1,0 +1,26 @@
+<% include ../partials/header %>
+
+
+<main class="ui main text container">
+    <header class="header">
+        <h1>Add new Comment to <%= campground.name %></h1>
+    </header>
+
+    <form action="/campgrounds/<%= campground._id %>/comments" method="POST" class="ui form segment">
+        <div class="field">
+            <label>Your Name</label>
+            <input type="text" name="comment[author]" placeholder="Your Name" required>
+        </div>
+        <div class="field">
+            <label>Your Comment</label>
+            <textarea name="comment[text]" placeholder="Your Comment" required></textarea>
+        </div>
+        <button class="ui big button teal" type="submit">Submit Comment</button>
+        <a href="/campgrounds/<%= campground._id %>" class="ui small button teal">Return</a>
+    </form>
+
+</main>
+
+
+
+<% include ../partials/footer %>

@@ -1,2 +1,12 @@
-.card .content {
-  margin-bottom: 0; }
+.showSidebar .button {
+  width: 100%; }
+
+.showContent {
+  padding: 5px; }
+
+.ui.comments {
+  max-width: 100%; }
+  .ui.comments .button {
+    padding-left: 2.5em;
+    padding-right: 2.5em;
+    float: right; }

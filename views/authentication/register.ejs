@@ -1,0 +1,22 @@
+<% include ../partials/header %>
+
+<main class="ui main text container">
+    <header class="header">
+        <h1>Sign Up To Yelpcamp!</h1>
+    </header>
+
+    <form action="/register" method="POST" class="ui form segment">
+        <div class="field">
+            <label>Your Username</label>
+            <input type="text" name="username" placeholder="Username" required>
+        </div>
+        <div class="field">
+            <label>Your Password</label>
+            <input type="password" name="password" placeholder="Password" required>
+        </div>
+        <button class="ui big button teal" type="submit">Signup</button>
+    </form>
+
+</main>
+
+<% include ../partials/footer %>
