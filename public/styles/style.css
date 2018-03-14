@@ -6,7 +6,10 @@
 
 .ui.comments {
   max-width: 100%; }
-  .ui.comments .button {
+  .ui.comments > .button {
     padding-left: 2.5em;
     padding-right: 2.5em;
     float: right; }
+
+.deleteCheck {
+  display: inline; }

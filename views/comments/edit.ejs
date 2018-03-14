@@ -1,0 +1,35 @@
+<% include ../partials/header %>
+
+
+<main class="ui main text container">
+
+    <header class="header">
+        <h1>Edit Comment</h1>
+    </header>
+
+    <form action="/campgrounds/<%= campgroundID %>/comments/<%= comment._id %>?_method=PUT" method="POST" class="ui form segment">
+        <div class="field">
+            <label>Your Comment</label>
+            <textarea name="comment[text]" placeholder="Your Comment" required> <%= comment.text %> </textarea>
+        </div>
+        <button class="ui big button teal" type="submit">Submit Comment</button>
+    </form>
+
+    <form action="/campgrounds/<%= campgroundID %>/comments/<%= comment._id %>?_method=DELETE" method="POST" class="ui form segment">
+        <h2 class="ui header">Delete Comment</h2>
+        <button class="ui small button red inverted">Delete Comment</button>
+        <div class="field deleteCheck">
+            <div class="ui checkbox">
+                <input type="checkbox" required>
+                <label>Confirm deletion of this Comment</label>
+            </div>
+        </div>
+    </form>
+    
+    <a href="/campgrounds/<%= campgroundID %>" class="ui small button teal">Return</a>
+
+</main>
+
+
+
+<% include ../partials/footer %>

@@ -17,7 +17,7 @@
                 <a href="/register" class="item header">Sign Up</a>
                 <% } else { %>
                 <div class="item">
-                    <span class="header"> <%= currentUser.username %></span>
+                    <span class="header"> <%= "Signed in as: " + currentUser.username %></span>
                 </div>
                 <a href="/logout" class="item header">Log Out</a>
                 <% } %>

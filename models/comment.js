@@ -1,7 +1,13 @@
 const mongoose = require("mongoose");
 
 const commentSchema = new mongoose.Schema({
-    author: String,
+    author: {
+        id : {
+            type : mongoose.Schema.Types.ObjectId,
+            ref : String
+        },
+        username : String
+    },
     date: {type: Date, default: Date.now()},
     text: String
 });

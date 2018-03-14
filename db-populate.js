@@ -5,30 +5,36 @@ const mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost:27017/yelpcamp");
 const Campground = require("./models/campground");
 const Comment = require("./models/comment");
+const User = require("./models/user");
 
 function seedDB() {
     Campground.remove({}, function(err) {
-        console.log("Cleared Campground DB");
-        for (let camp in seedData) {
-            Campground.create(
-                seedData[camp], 
-                function(err, campground) {
-                    if (err) throw err;
-                    Comment.create(
-                        {
-                            text : "Test Comment " + camp,
-                            author: "Jimmy"
-                        }, function(err, comment) {
-                            if (err) throw err;
-                            campground.comments.push(comment);
-                            campground.save();
-                            //console.log("Created Campground");
-                    });
-                }
-            );
-        }
+        // console.log("Cleared Campground DB");
+        // for (let camp in seedData) {
+        //     Campground.create(
+        //         seedData[camp], 
+        //         function(err, campground) {
+        //             if (err) throw err;
+        //             Comment.create(
+        //                 {
+        //                     text : "Test Comment " + camp,
+        //                     author: "Jimmy"
+        //                 }, function(err, comment) {
+        //                     if (err) throw err;
+        //                     campground.comments.push(comment);
+        //                     campground.save();
+        //                     //console.log("Created Campground");
+        //             });
+        //         }
+        //     );
+        // }
     });
+    User.remove({}, function(err) {
 
+    });
+    Comment.remove({}, function(err) {
+        
+    });
 
 }
 

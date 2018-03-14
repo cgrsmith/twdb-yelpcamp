@@ -1,0 +1,40 @@
+<% include ../partials/header %>
+
+<main class="ui main text container">
+
+    <header class="header">
+        <h1>Edit Campground</h1>
+    </header>
+
+    <form action="/campgrounds/<%= campground._id%>?_method=PUT" method="POST" class="ui form segment">
+        <div class="field">
+            <label>Campsite Name</label>
+            <input type="text" name="campground[name]" value="<%= campground.name %>" required>
+        </div>
+        <div class="field">
+            <label>Image Link</label>
+            <input type="text" name="campground[image]" value="<%= campground.image %>"  required>
+        </div>
+        <div class="field">
+            <label>Description</label>
+            <textarea name="campground[description]" required><%= campground.description %></textarea>
+        </div>
+        <button class="ui big button teal" type="submit">Submit Campground</button>
+    </form>
+
+    <form action="/campgrounds/<%= campground._id%>?_method=DELETE" method="POST" class="ui form segment">
+        <h2 class="ui header">Delete Campground</h2>
+        <button class="ui small button red inverted">Delete Campground</button>
+        <div class="field deleteCheck">
+            <div class="ui checkbox">
+                <input type="checkbox" required>
+                <label>Confirm deletion of this Campground</label>
+            </div>
+        </div>
+    </form>
+
+    <a href="/campgrounds/<%= campground._id%>" class="ui small button teal">Return</a>
+
+</main>
+
+<% include ../partials/footer %>
