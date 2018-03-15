@@ -16,6 +16,10 @@
             <input type="text" name="campground[image]" value="<%= campground.image %>"  required>
         </div>
         <div class="field">
+            <label>Price Per Night</label>
+            <input type="number" name="campground[price]" value="<%= campground.price %>" min="0" step="0.01">
+        </div>
+        <div class="field">
             <label>Description</label>
             <textarea name="campground[description]" required><%= campground.description %></textarea>
         </div>

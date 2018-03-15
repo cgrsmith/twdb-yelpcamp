@@ -24,4 +24,20 @@
             </div>
     </nav>
 
+    <div class="ui container">
+
+        <% if (errorMessage && errorMessage.length > 0) { %>
+        <div class="ui red message" role="alert">
+            <%= errorMessage %>
+        </div>
+        <% } %>
+
+        <% if (successMessage && successMessage.length > 0) { %>
+        <div class="ui green message" role="alert">
+            <%= successMessage %>
+        </div>
+        <% } %>
+
+    </div>
+
 

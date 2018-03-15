@@ -7,6 +7,7 @@ const mongoose      = require("mongoose");
 const passport      = require("passport");
 const LocalStrategy = require("passport-local");
 const override      = require("method-override");
+const flash         = require("connect-flash");
 /*** Routes ***/
 const campgroundRoutes  = require("./routes/campgrounds");
 const commentRoutes    = require("./routes/comments");
@@ -19,6 +20,7 @@ const port = process.env.PORT || 3000;
 app.use(parser.urlencoded({extended : true}));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(override("_method"));
+app.use(flash());
 app.set("view engine", "ejs");
 
 
@@ -41,6 +43,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(function(req, res, next) {
     res.locals.currentUser = req.user;
+    res.locals.errorMessage = req.flash("error");
+    res.locals.successMessage = req.flash("success");
     next();
 });
 
@@ -54,7 +58,7 @@ app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 
 /*** RUN SERVER ***/
-app.listen(port, function() {
+app.listen(port, process.env.IP, function() {
     console.log("Yelpcamp: Server Running on Port " + port);
 });
 

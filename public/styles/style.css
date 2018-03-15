@@ -13,3 +13,13 @@
 
 .deleteCheck {
   display: inline; }
+
+.masthead {
+  background-image: url("https://c1.staticflickr.com/3/2476/3768082032_27611a1e91_b.jpg") !important;
+  background-size: cover !important;
+  height: 100%; }
+  .masthead .container {
+    margin-top: 16em; }
+  .masthead .huge.header {
+    font-size: 3em;
+    font-weight: bold; }

@@ -9,7 +9,12 @@
         <div class="item">
             <div class="showContent">
                 <h1 class="header"><a class="" href=#><%= campground.name %></a></h1>
-                <p class="metadata">$10.00/night</p>
+
+                <% if (campground.price) { %>
+                <p class="metadata">$<%= campground.price %> Per Night</p>
+                <% } else { %>
+                <p class="metadata">No Price Available</p>
+                <% } %>
                 <p class="description"><%- campground.description %></p>
                 <p><em> <%= "Submitted by " + campground.author.username %> </em></p>
 

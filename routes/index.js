@@ -1,11 +1,13 @@
 const express = require("express");
 const router = express.Router();
+const flash = require("connect-flash");
 const passport = require("passport");
 
 const User = require("../models/user");
 
+/*** Landing Page Route ***/
 router.get("/", function(req, res) {
-    res.redirect("/campgrounds");
+    res.render("partials/landing");
 });
 
 /*** Authentication Routes ***/
@@ -18,10 +20,11 @@ router.get("/register", function(req, res) {
 router.post("/register", function(req, res) {
     User.register(new User({username : req.body.username}), req.body.password, function(err, user) {
         if (err){
-            console.log(err);
+            req.flash("error", err.message);
             return res.render("authentication/register");
         } else {
             passport.authenticate("local")(req, res, function() {
+                req.flash("success", "Successfully Registered - Welcome " + user.username);
                 res.redirect("/campgrounds");
             });
         }
@@ -45,19 +48,10 @@ router.post("/login",
 
 //Logout
 router.get("/logout", function(req, res) {
+    req.flash("success", "Logged Out");
     req.logout();
-    res.redirect("/");
+    res.redirect("/campgrounds");
 });
 
-
-
-/*** WORKER FUNCTIONS ***/
-function isLoggedIn(req, res, next) {
-    if(req.isAuthenticated()) {
-        return next();
-    } else {
-        res.redirect("/login");
-    }
-}
 
 module.exports = router;
