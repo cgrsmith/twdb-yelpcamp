@@ -25,8 +25,8 @@ app.set("view engine", "ejs");
 
 
 /*** Models ***/
-//mongoose.connect("mongodb://localhost:27017/yelpcamp");
-mongoose.connect("mongodb://admin:admin@ds115219.mlab.com:15219/cgrs-yelpcamp");
+mongoose.connect(process.env.DATABASEURL);
+//mongodb://localhost:27017/yelpcamp
 const Campground = require("./models/campground");
 const Comment = require("./models/comment");
 const User = require("./models/user");
