@@ -25,13 +25,14 @@ app.set("view engine", "ejs");
 
 
 /*** Models ***/
-mongoose.connect("mongodb://localhost:27017/yelpcamp");
+//mongoose.connect("mongodb://localhost:27017/yelpcamp");
+mongoose.connect("mongodb://admin:admin@ds115219.mlab.com:15219/cgrs-yelpcamp");
 const Campground = require("./models/campground");
 const Comment = require("./models/comment");
 const User = require("./models/user");
 //const seedDB = require("./db-populate"); //RE-SEED DB
 //seedDB();
-
+ 
 /*** Passport Configuration ***/
 app.use(require("express-session")({
     secret : "test secret please ignore",
